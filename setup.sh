@@ -12,10 +12,9 @@ git clone $DT_LINK --depth=1 --single-branch $DT_PATH
 if [[ "$kernelisprebuilt" == "false" ]]; then
        echo "using manual kernel compilation"
        git clone $KERNEL_LINK --depth=1 --single-branch $KERNEL_PATH
-
-if [[ "$kernelisprebuilt" == "true" ]]; then
-       echo "using prebuilt kernel method"
-
+else 
+       echo "Kernel is prebuilt. Clone skipped."
+fi
 
 echo "compiling recovery"
 source build/envsetup.sh && \
