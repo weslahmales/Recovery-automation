@@ -64,7 +64,7 @@ jobs:
             sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
             sudo chmod a+rx /usr/local/bin/repo
 
-      - name: Sync recovery source ,dt & kernel & make recovery
+       - name: Sync recovery source ,dt & kernel & make recovery
          run: |
            sudo chmod 0777 setup.sh
            bash setup.sh
