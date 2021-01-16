@@ -25,7 +25,7 @@ on:
         required: true
         default: 'false'
      req_qcom_commonsys:
-        description: 'if your repo require to manually have QCOM commonsys set this to true i.e shrp doesn't clone this by default so require to do manually'
+        description: 'if your repo require to manually have QCOM commonsys set this to true i.e shrp doesnt clone this by default so require to do manually'
         required: true
         default: 'false'
      cryptfs_fix:
