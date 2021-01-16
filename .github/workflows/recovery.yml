@@ -16,10 +16,10 @@ on:
         required: true
      kernel_link:
         description: 'kernel repo link'
-        required: true
+        required: false
      kernel_path:
         description: 'kernel path i.e kernel/xiaomi/rosy'
-        required: true
+        required: false
      kernelisprebuilt:
         description: 'if your kernel is not prebuilt set this to false'
         required: true
