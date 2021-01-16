@@ -25,7 +25,7 @@ fi
 
 if [[ "$CRYPTFS_FIX" == "true" ]]; then
        echo "fixing cryptfs"
-       cd work/vendor/qcom/opensource/commonsys/
+       cd vendor/qcom/opensource/commonsys/
        rm -rf cryptfs_hw
        rm Android.bp
        wget https://raw.githubusercontent.com/ElytrA8/cryptfs_fixup/main/Android.bp
