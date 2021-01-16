@@ -9,4 +9,4 @@ sudo apt install \
      pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
      texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
      libxml-simple-perl apt-utils \
-     libncurses5 curl python-is-python3 -y
+     libncurses5 curl -y
