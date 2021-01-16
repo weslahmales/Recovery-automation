@@ -6,7 +6,7 @@ cd work >> /dev/null
 echo "init repo/n"
 repo init -u $MANIFEST --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
 repo sync -j4 >> /dev/null
-echo "cloning dt/n"
+echo "cloning dt"
 git clone $DT_LINK --depth=1 --single-branch $DT_PATH
 
 if [[ "$KERNELISPREBUILT" == "false" ]]; then
@@ -14,6 +14,13 @@ if [[ "$KERNELISPREBUILT" == "false" ]]; then
        git clone $KERNEL_LINK --depth=1 --single-branch $KERNEL_PATH
 else 
        echo "Kernel is prebuilt. Clone skipped."
+fi
+
+if [[ "$REQ_QCOM_COMMONSYS" == "true" ]]; then
+       echo "cloning QCOM commonsys"
+       git clone https://github.com/omnirom/android_vendor_qcom_opensource_commonsys -b android-9.0 vendor/qcom/opensource/commonsys
+else 
+       echo "QCOM commonsys not required. Clone skipped."
 fi
 
 if [[ "$CRYPTFS_FIX" == "true" ]]; then
