@@ -20,7 +20,11 @@ on:
      kernel_path:
         description: 'kernel path i.e kernel/xiaomi/rosy'
         required: true
-    cryptfs_fix:
+     kernelisprebuilt:
+        description: 'if your kernel is not prebuilt set this to false'
+        required: true
+        default: 'false'
+     cryptfs_fix:
         description: 'if your device require to fix cryptfs_hw conflict set this to true'
         required: true
         default: 'false'
@@ -50,6 +54,14 @@ jobs:
 
        - name: cleanup space
          uses: rokibhasansagar/slimhub_actions@main
+
+
+       - name: Initializing environment
+         run: |
+            sudo -E apt-get -qq update
+            sudo -E apt-get -qq install bc build-essential zip curl libstdc++6 git wget python gcc clang libssl-dev repo rsync flex curl  bison aria2
+            sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
+            sudo chmod a+rx /usr/local/bin/repo
 
       - name: Sync recovery source ,dt & kernel & make recovery
          run: |
