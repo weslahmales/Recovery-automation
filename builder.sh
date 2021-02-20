@@ -44,8 +44,18 @@ else
 fi
 echo "::endgroup::"
 
+echo "::group::Extra Commands"
+if [[ ! -z "$EXTRA_CMD" ]]; then
+	printf "Executing Extra Commands\n"
+	$EXTRA_CMD
+else
+	printf "No extra commands mentioned.\n"
+fi
+echo "::endgroup::"
+
 echo "::group::Pre-Compilation"
 printf "Compiling Recovery...\n"
+
 export ALLOW_MISSING_DEPENDENCIES=true
 
 # If lunch throws error for roomservice, saying `device tree not found` or `fetching device already present`,
