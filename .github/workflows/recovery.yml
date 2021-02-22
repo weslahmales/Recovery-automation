@@ -71,7 +71,7 @@ jobs:
       - name: Generate build number
         id: buildnumber
         uses: einaregilsson/build-number@v3 
-       with:
+        with:
          token: ${{secrets.github_token}}
 
        - uses: "marvinpinto/action-automatic-releases@latest"
