@@ -75,7 +75,7 @@ jobs:
          token: ${{secrets.github_token}}
 
       - name: Reslease Builds
-      - uses: "marvinpinto/action-automatic-releases@latest"
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
          repo_token: "${{ secrets.GITHUB_TOKEN }}"
          automatic_release_tag: "${{needs.build.outputs.build_number}}"
