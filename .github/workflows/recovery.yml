@@ -68,14 +68,20 @@ jobs:
       - name: Make ${{ env.TARGET }} for ${{ env.CODENAME }}
         run: bash builder.sh
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: ${{ env.CODENAME }}_${{ env.TARGET }}-zip
-          path: work/out/target/product/${{ env.CODENAME }}/*.zip
+      - name: Generate build number
+        id: buildnumber
+         uses: einaregilsson/build-number@v3 
+       with:
+         token: ${{secrets.github_token}}
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: ${{ env.CODENAME }}_${{ env.TARGET }}
-          path: |
-            work/out/target/product/${{ env.CODENAME }}/recovery.img
-            work/out/target/product/${{ env.CODENAME }}/boot.img
+       - uses: "marvinpinto/action-automatic-releases@latest"
+         with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{needs.build.outputs.build_number}}"
+          prerelease: false
+          title: "Recovery Automation By Area69Lab"
+          files: |
+              work/out/target/product/${{ env.CODENAME }}/*.zip
+              work/out/target/product/${{ env.CODENAME }}/recovery.img
+              work/out/target/product/${{ env.CODENAME }}/boot.img
+              
