@@ -76,5 +76,5 @@ jobs:
          prerelease: false
          title: "Recovery Automation By Area69Lab"
          files: |
-             work/out/target/product/${{ env.CODENAME }}/*.zip
-             work/out/target/product/${{ env.CODENAME }}/*.img
+             work/out/target/product/*/*.zip
+             work/out/target/product/*/*.img
