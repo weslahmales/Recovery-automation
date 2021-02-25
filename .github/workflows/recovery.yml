@@ -89,5 +89,5 @@ jobs:
          prerelease: false
          title: "Recovery Automation By Area69Lab"
          files: |
-             /work/fox_10.0/out/target/product/*/*.zip
-             /work/fox_10.0/out/target/product/*/*.img
+             work/fox_10.0/out/target/product/*/*.zip
+             work/fox_10.0/out/target/product/*/*.img
