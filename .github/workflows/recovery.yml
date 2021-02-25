@@ -69,6 +69,7 @@ jobs:
         run: bash builder.sh
 
       - name: Reslease Builds
+        if: env.MANIFEST != 'orangefox'
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
          repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -78,3 +79,15 @@ jobs:
          files: |
              work/out/target/product/*/*.zip
              work/out/target/product/*/*.img
+
+      - name: Reslease Builds if Orangefox
+        if: env.MANIFEST == 'orangefox'
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+         repo_token: "${{ secrets.GITHUB_TOKEN }}"
+         automatic_release_tag: "latest"
+         prerelease: false
+         title: "Recovery Automation By Area69Lab"
+         files: |
+             /work/fox_10.0/out/target/product/*/*.zip
+             /work/fox_10.0/out/target/product/*/*.img
