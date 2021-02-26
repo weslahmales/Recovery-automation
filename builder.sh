@@ -9,8 +9,8 @@ echo "::group::Source Repo Sync"
 printf "Initializing Repo\n"
 if [[ "$MANIFEST" == "orangefox" ]]; then
        printf "Manually Cloning Ofox Repo\n"
-       git clone https://gitlab.com/OrangeFox/sync.git
-       cd sync
+       git clone https://github.com/CarbonatedBlack/ofox-sync.git
+       cd ofox-sync
        bash ./get_fox_10.sh /home/runner/work
        cd /home/runner/work
 else
