@@ -10,8 +10,9 @@ printf "Initializing Repo\n"
 if [[ "$MANIFEST" == "orangefox" ]]; then
        printf "Manually Cloning Ofox Repo\n"
        git clone https://gitlab.com/OrangeFox/sync.git
-       bash ./sync/get_fox_10.sh ./fox_10.0
-       cd fox_10.0
+       cd sync
+       bash ./get_fox_10.sh /home/runner/work
+       cd /home/runner/work
 else
        repo init -q -u $MANIFEST --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
        repo sync -c -q --force-sync --no-clone-bundle --no-tags -j6 &>/dev/null
@@ -77,4 +78,3 @@ echo "::endgroup::"
 echo "::group::Compilation"
 mka $TARGET
 echo "::groupend::"
-
