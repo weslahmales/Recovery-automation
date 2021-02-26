@@ -9,7 +9,8 @@ echo "::group::Source Repo Sync"
 printf "Initializing Repo\n"
 if [[ "$MANIFEST" == "orangefox" ]]; then
        printf "Manually Cloning Ofox Repo\n"
-       rsync rsync://sources.orangefox.download/sources/fox_10.0 . --progress -a
+       git clone https://gitlab.com/OrangeFox/sync.git
+       bash ./sync/get_fox_10.sh ./fox_10.0
        cd fox_10.0
 else
        repo init -q -u $MANIFEST --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
