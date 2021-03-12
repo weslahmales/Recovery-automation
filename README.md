@@ -1,7 +1,5 @@
 # Building recovery online made easy
 
-### Area69Lab Presents - Recovery Automation
-
 ## What this is
 
 This is an easy way for recovery maintainers or anyone who's interested in building recoveries to finish their dream without a server.
